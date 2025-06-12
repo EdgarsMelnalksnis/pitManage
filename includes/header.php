@@ -9,7 +9,7 @@
 <body class="bg-white text-gray-900">
 <header class="w-full flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 py-4 space-y-4 sm:space-y-0">
     <div>
-        <img src="/images/pitManageLogo.png" alt="PitManage Logo" class="h-40 md:h-48 lg:h-56 w-auto">
+        <img src="/images/pitManageLogo.png" alt="PitManage Logo" class="h-20 md:h-24 lg:h-28 w-auto">
     </div>
     <div class="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2 bg-gray-100 p-1 rounded-full border border-gray-300">
         <a href="#"
