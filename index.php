@@ -63,7 +63,7 @@ input:focus, button:focus {
 <main class="relative background-blur flex flex-col items-center justify-center text-center mt-20 px-4">
     <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-4">Your digital garage</h1>
     <p class="text-gray-500 text-lg mb-8">Supercharge your service management with PitManage</p>
-    <a href="javascript:void(0)"
+    <a href="javascript:void(0)" id="getStarted"
        class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white font-semibold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
        Get Started. It's FREE →
     </a>
@@ -115,6 +115,23 @@ input:focus, button:focus {
             </p>
         </div>
     </div>
+</div>
+
+
+<div id="starterModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50 backdrop-blur-sm">
+  <div class="bg-white rounded-xl p-6 w-full max-w-lg shadow-2xl space-y-4">
+    <div class="flex justify-between items-center">
+      <h2 class="text-xl font-bold">Let’s get started</h2>
+      <button onclick="document.getElementById('starterModal').classList.add('hidden')" class="text-gray-500 hover:text-gray-700 text-2xl">&times;</button>
+    </div>
+    <form id="starterForm" class="space-y-4">
+      <input type="text" placeholder="Your Service Name" class="w-full border rounded px-4 py-2" required>
+      <input type="text" placeholder="Service Address" class="w-full border rounded px-4 py-2" required>
+      <input type="number" placeholder="Number of Workstations" class="w-full border rounded px-4 py-2">
+      <textarea placeholder="Describe any features you need" class="w-full border rounded px-4 py-2" rows="3"></textarea>
+      <button type="submit" class="w-full bg-purple-600 text-white py-2 rounded hover:bg-purple-700">Submit</button>
+    </form>
+  </div>
 </div>
 
 <!-- Login Modal -->

@@ -1,6 +1,27 @@
 <footer class="text-center text-sm text-gray-400 mt-20 mb-4">
     © 2025 PitManage. All rights reserved.
 </footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const getStarted = document.getElementById("getStarted");
+    const starterModal = document.getElementById("starterModal");
+
+    if (getStarted && starterModal) {
+        getStarted.addEventListener("click", () => {
+            starterModal.classList.remove("hidden");
+        });
+    }
+
+    // Optional: handle form submission
+    document.getElementById("starterForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+        alert("Thank you! We’ll use this info to personalize your experience.");
+        starterModal.classList.add("hidden");
+    });
+});
+</script>
+
 <script>
     // Modal functions
     function showModal(modalId) {
@@ -25,6 +46,9 @@
 
     // Event listeners
     document.addEventListener('DOMContentLoaded', function() {
+    // Get Started button triggers the same Sign Up modal
+	    
+	  
         // Signup trigger
         document.getElementById('signupTrigger')?.addEventListener('click', function(e) {
             e.preventDefault();
