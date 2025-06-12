@@ -100,7 +100,7 @@
 </section>
 
 
-<section class="w-full text-gray-900 py-20 px-4 md:px-8 lg:px-20 bg-white">
+<section id="pricing" class="w-full text-gray-900 py-20 px-4 md:px-8 lg:px-20 bg-white">
   <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Pricing</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto text-center">
     <!-- Free Plan -->
