@@ -1,5 +1,7 @@
 <?php include 'includes/header.php'; ?>
 <style>
+html { scroll-behavior: smooth; }
+
     .background-blur::before {
         content: "";
         position: absolute;
