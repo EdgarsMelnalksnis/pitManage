@@ -418,3 +418,42 @@ input:focus, button:focus {
     <button class="w-full bg-green-600 text-white py-2 rounded">Create Account</button>
   </div>
 </div>
+
+<script>
+  let currentStep = 1;
+  function startForm() {
+    document.getElementById('blurredBg').style.display = 'block';
+    document.getElementById('formOverlay').style.display = 'flex';
+    currentStep = 1;
+    document.querySelectorAll('.step').forEach(step => step.classList.remove('active'));
+    document.getElementById('step1').classList.add('active');
+    document.getElementById('formTitle').innerText = "Step 1 of 3";
+  }
+
+  function nextStep() {
+    if (currentStep === 1 && !document.getElementById('email').value) return alert("Email is required");
+    if (currentStep === 2 && (!document.getElementById('fullName').value || !document.getElementById('company').value)) return alert("Name and Company are required");
+
+    document.getElementById('step' + currentStep).classList.remove('active');
+    currentStep++;
+    if (currentStep <= 3) {
+      document.getElementById('step' + currentStep).classList.add('active');
+      document.getElementById('formTitle').innerText = "Step " + currentStep + " of 3";
+    }
+  }
+
+  function submitForm() {
+    alert("🎉 Thank you! We'll set up your account.");
+    document.getElementById('blurredBg').style.display = 'none';
+    document.getElementById('formOverlay').style.display = 'none';
+  }
+
+  document.querySelectorAll('button').forEach(btn => {
+    if (btn.innerText.includes("Get Started")) {
+      btn.addEventListener("click", e => {
+        e.preventDefault();
+        startForm();
+      });
+    }
+  });
+</script>
