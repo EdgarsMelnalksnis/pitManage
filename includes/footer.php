@@ -5,24 +5,22 @@
 <script>
 document.addEventListener("DOMContentLoaded", function () {
     const getStarted = document.getElementById("getStarted");
-    const starterModal = document.getElementById("starterModal");
+    const blurredBg = document.getElementById("blurredBg");
+    const formOverlay = document.getElementById("formOverlay");
 
-    if (getStarted && starterModal) {
+    if (getStarted && blurredBg && formOverlay) {
         getStarted.addEventListener("click", () => {
-            starterModal.classList.remove("hidden");
+            blurredBg.style.display = 'block';
+            formOverlay.style.display = 'flex';
+            currentStep = 1;
+            document.getElementById('formTitle').innerText = "Step 1 of 3";
+            document.querySelectorAll('.step').forEach(step => {
+                step.classList.remove('active');
+            });
+            document.getElementById('step1').classList.add('active');
         });
     }
 
-    // Optional: handle form submission
-    document.getElementById("starterForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-        alert("Thank you! We’ll use this info to personalize your experience.");
-        starterModal.classList.add("hidden");
-    });
-});
-</script>
-
-<script>
     // Modal functions
     function showModal(modalId) {
         document.getElementById(modalId).classList.remove('hidden');
@@ -44,32 +42,63 @@ document.addEventListener("DOMContentLoaded", function () {
         showModal('loginModal');
     }
 
-    // Event listeners
-    document.addEventListener('DOMContentLoaded', function() {
-    // Get Started button triggers the same Sign Up modal
-	    
-	  
-        // Signup trigger
-        document.getElementById('signupTrigger')?.addEventListener('click', function(e) {
-            e.preventDefault();
-            showModal('signupModal');
-        });
+    // Multi-step form logic
+    let currentStep = 1;
+    function nextStep() {
+        if (currentStep === 1 && !document.getElementById('email').value) {
+            return alert("Email is required");
+        }
+        if (currentStep === 2 && (!document.getElementById('fullName').value || !document.getElementById('company').value)) {
+            return alert("Name and Company are required");
+        }
 
-        // Login trigger (if you have one)
-        document.getElementById('loginTrigger')?.addEventListener('click', function(e) {
-            e.preventDefault();
-            showModal('loginModal');
-        });
+        document.getElementById('step' + currentStep).classList.remove('active');
+        currentStep++;
+        document.getElementById('formTitle').innerText = "Step " + currentStep + " of 3";
+        document.getElementById('step' + currentStep).classList.add('active');
+    }
 
-        // Close when clicking outside
-        document.querySelectorAll('[id$="Modal"]').forEach(modal => {
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    closeModal(modal.id);
-                }
-            });
+    function submitForm() {
+        alert("🎉 Thank you! We'll set up your account.");
+        document.getElementById('blurredBg').style.display = 'none';
+        document.getElementById('formOverlay').style.display = 'none';
+    }
+
+    // Close when clicking outside
+    document.querySelectorAll('[id$="Modal"]').forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeModal(modal.id);
+            }
         });
     });
+
+    formOverlay.addEventListener('click', function(e) {
+        if (e.target === formOverlay) {
+            formOverlay.style.display = 'none';
+            blurredBg.style.display = 'none';
+        }
+    });
+});
 </script>
 </body>
 </html>
+
+
+<script>
+  function showModal(id) {
+    document.getElementById(id).classList.remove('hidden');
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.add('hidden');
+  }
+
+  document.getElementById("loginTrigger")?.addEventListener("click", function(e) {
+    e.preventDefault();
+    showModal('loginModal');
+  });
+  document.getElementById("signupTrigger")?.addEventListener("click", function(e) {
+    e.preventDefault();
+    showModal('signupModal');
+  });
+</script>

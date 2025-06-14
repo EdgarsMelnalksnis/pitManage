@@ -58,6 +58,59 @@ input:focus, button:focus {
 .bg-gradient-to-r:hover {
     background-size: 150%;
 }
+/* Multi-step form styles */
+.blurred-bg {
+    background: url('/images/inputFormBackground.png') no-repeat center center;
+    background-size: cover;
+    filter: blur(4px);
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    display: none;
+}
+
+.form-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    padding: 30px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.form-card input, .form-card select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.form-card button {
+    background: linear-gradient(to right, #5a6dfb, #9c4de7);
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.step { display: none; }
+.step.active { display: block; }
 </style>
 
 <main class="relative background-blur flex flex-col items-center justify-center text-center mt-20 px-4">
@@ -190,6 +243,33 @@ input:focus, button:focus {
         </div>
     </div>
 </div>
+<!-- Multi-step Form -->
+<div class="blurred-bg" id="blurredBg"></div>
+
+<div class="form-overlay" id="formOverlay">
+    <div class="form-card">
+        <h2 id="formTitle">Step 1 of 3</h2>
+
+        <div class="step active" id="step1">
+            <input type="email" id="email" placeholder="Email Address" required />
+            <button onclick="nextStep()">Next</button>
+        </div>
+
+        <div class="step" id="step2">
+            <input type="text" id="fullName" placeholder="Full Name" required />
+            <input type="text" id="company" placeholder="Company Name" required />
+            <button onclick="nextStep()">Next</button>
+        </div>
+
+        <div class="step" id="step3">
+            <label><input type="checkbox" /> Online Booking</label><br/>
+            <label><input type="checkbox" /> Employee Work Management</label><br/>
+            <label><input type="checkbox" /> Automated Invoicing</label><br/>
+            <label><input type="checkbox" /> WhatsApp Integration</label><br/>
+            <button onclick="submitForm()">Finish</button>
+        </div>
+    </div>
+</div>
 </main>
 
 <section class="w-full text-gray-900 py-16 px-4 md:px-8 lg:px-20">
@@ -316,3 +396,25 @@ input:focus, button:focus {
 
 </div>
 <?php include 'includes/footer.php'; ?>
+
+
+<!-- Login Modal -->
+<div id="loginModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
+  <div class="bg-white rounded-xl p-6 shadow-xl max-w-sm w-full mx-4">
+    <h2 class="text-xl font-semibold mb-4">Log In</h2>
+    <input type="email" placeholder="Email" class="w-full border p-2 rounded mb-3" />
+    <input type="password" placeholder="Password" class="w-full border p-2 rounded mb-4" />
+    <button class="w-full bg-blue-600 text-white py-2 rounded">Log In</button>
+  </div>
+</div>
+
+<!-- Signup Modal -->
+<div id="signupModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
+  <div class="bg-white rounded-xl p-6 shadow-xl max-w-sm w-full mx-4">
+    <h2 class="text-xl font-semibold mb-4">Sign Up</h2>
+    <input type="text" placeholder="Full Name" class="w-full border p-2 rounded mb-3" />
+    <input type="email" placeholder="Email" class="w-full border p-2 rounded mb-3" />
+    <input type="password" placeholder="Password" class="w-full border p-2 rounded mb-4" />
+    <button class="w-full bg-green-600 text-white py-2 rounded">Create Account</button>
+  </div>
+</div>
