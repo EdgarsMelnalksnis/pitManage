@@ -1,0 +1,289 @@
+{
+    "users": {
+        "U001-superadmin": {
+            "profile": {
+                "user_id": "U001",
+                "name": "Platform Owner",
+                "email": "admin@platform.com",
+                "role": "superadmin",
+                "phone": "+37120000000",
+                "created_at": "2025-06-01T09:15:00Z",
+                "last_login": "2025-06-14T13:45:22Z",
+                "status": "active",
+                "auth_method": "email",
+                "profile_picture_url": null,
+                "language": "en",
+                "timezone": "Europe/Riga",
+                "permissions": [
+                    "manage_users",
+                    "create_company",
+                    "view_all_data"
+                ],
+                "companies_owned": [
+                    "C001"
+                ],
+                "notifications": {
+                    "email_updates": true,
+                    "sms_alerts": false
+                },
+                "notes": "Superadmin account for platform-wide control."
+            },
+            "companies": {
+                "C001-BestCarFix": {
+                    "company_info": {
+                        "company_id": "C001",
+                        "name": "Best Car Fix",
+                        "industry": "Car Repair & Maintenance",
+                        "owner_id": "U001",
+                        "address": {
+                            "street": "Main St 5",
+                            "city": "Riga",
+                            "country": "Latvia",
+                            "postal_code": "LV-1010"
+                        },
+                        "contact": {
+                            "email": "info@bestcarfix.lv",
+                            "phone": "+37130001111"
+                        },
+                        "created_at": "2025-06-01T09:00:00Z",
+                        "timezone": "Europe/Riga",
+                        "operating_hours": {
+                            "mon_fri": "08:00\u201318:00",
+                            "saturday": "10:00\u201314:00",
+                            "sunday": "closed"
+                        },
+                        "workstation_count": 3,
+                        "assigned_workers": [
+                            "W001",
+                            "W002"
+                        ],
+                        "active_clients": [
+                            "CL001"
+                        ],
+                        "services_offered": [
+                            "Oil Change",
+                            "Tire Rotation",
+                            "Brake Check",
+                            "Diagnostics"
+                        ],
+                        "logo_url": null,
+                        "status": "active",
+                        "rating": 4.7,
+                        "notes": "Premium garage. EV service tools installed in 2024."
+                    },
+                    "workstations": {
+                        "WS001-Lift1": {
+                            "workstation_id": "WS001",
+                            "company_id": "C001",
+                            "name": "Lift 1",
+                            "type": "Hydraulic Lift",
+                            "location_note": "Bay 2 near the back wall",
+                            "status": "available",
+                            "supported_services": [
+                                "Oil Change",
+                                "Brake Check",
+                                "Tire Rotation"
+                            ],
+                            "assigned_jobs": [
+                                "J001",
+                                "J002"
+                            ],
+                            "last_maintenance_date": "2025-04-10",
+                            "next_maintenance_due": "2025-10-10",
+                            "created_at": "2025-01-15T08:30:00Z",
+                            "notes": "New hydraulic system installed Jan 2025."
+                        }
+                    },
+                    "assets": {
+                        "AS001-OilPump": {
+                            "asset_id": "AS001",
+                            "name": "Oil Pump",
+                            "type": "Tool",
+                            "status": "functional"
+                        }
+                    },
+                    "jobs": {
+                        "J002-BrakeCheck": {
+                            "job_id": "J002",
+                            "company_id": "C001",
+                            "car_id": "CAR001",
+                            "client_id": "CL001",
+                            "worker_id": "W001",
+                            "workstation_id": "WS001",
+                            "service_type": "Brake Check",
+                            "description": "Customer reports squeaky brakes. Full brake inspection required.",
+                            "status": "in_progress",
+                            "priority": "medium",
+                            "scheduled_time": "2025-06-15T10:30:00",
+                            "duration_minutes": 90,
+                            "diagnostic_notes": null,
+                            "completion_notes": null,
+                            "created_at": "2025-06-13T08:00:00Z"
+                        }
+                    },
+                    "bookings": {
+                        "B001-Edgars": {
+                            "booking_id": "B001",
+                            "company_id": "C001",
+                            "client_id": "CL001",
+                            "car_id": "CAR001",
+                            "job_id": "J002",
+                            "status": "confirmed",
+                            "booking_source": "online",
+                            "scheduled_time": "2025-06-15T10:00:00",
+                            "created_at": "2025-06-13T07:00:00Z",
+                            "confirmation_sent": true,
+                            "reminders": {
+                                "email_sent": true,
+                                "sms_sent": false
+                            },
+                            "notes": "Client prefers to wait at the garage."
+                        }
+                    },
+                    "invoices": {
+                        "INV1001": {
+                            "invoice_id": "INV1001",
+                            "company_id": "C001",
+                            "job_id": "J001",
+                            "client_id": "CL001",
+                            "car_id": "CAR001",
+                            "issued_date": "2025-06-10T13:00:00Z",
+                            "due_date": "2025-06-17T13:00:00Z",
+                            "status": "paid",
+                            "payment_method": "card",
+                            "currency": "EUR",
+                            "total_amount": 135.0,
+                            "line_items": [
+                                {
+                                    "description": "Oil Change",
+                                    "unit_price": 100.0,
+                                    "quantity": 1,
+                                    "total": 100.0
+                                },
+                                {
+                                    "description": "Oil Filter",
+                                    "unit_price": 35.0,
+                                    "quantity": 1,
+                                    "total": 35.0
+                                }
+                            ],
+                            "taxes": [
+                                {
+                                    "type": "VAT",
+                                    "rate_percent": 21,
+                                    "amount": 23.27
+                                }
+                            ],
+                            "notes": "Thank you for servicing your vehicle with us.",
+                            "pdf_url": "https://cdn.example.com/invoices/INV1001.pdf",
+                            "created_at": "2025-06-10T13:00:00Z"
+                        }
+                    },
+                    "assigned_workers": {
+                        "company_id": "C001",
+                        "workers": [
+                            {
+                                "worker_id": "W001",
+                                "roles": [
+                                    "mechanic"
+                                ]
+                            },
+                            {
+                                "worker_id": "W002",
+                                "roles": [
+                                    "diagnostics",
+                                    "admin"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            "clients": {
+                "CL001-Edgars": {
+                    "client_id": "CL001",
+                    "name": "Edgars Melnalksnis",
+                    "email": "edgars@example.com",
+                    "phone": "+37122223333",
+                    "status": "active",
+                    "preferred_language": "en",
+                    "created_at": "2025-05-20T12:30:00Z",
+                    "last_login": "2025-06-12T18:15:00Z",
+                    "cars_owned": [
+                        "CAR001"
+                    ],
+                    "visited_companies": [
+                        "C001"
+                    ],
+                    "upcoming_bookings": [
+                        "B001"
+                    ],
+                    "notifications": {
+                        "email_updates": true,
+                        "sms_alerts": true
+                    },
+                    "rating": 4.8,
+                    "notes": "Prefers Saturday mornings. Requested reminders via SMS."
+                }
+            },
+            "workers": {
+                "W001-JohnSmith": {
+                    "worker_id": "W001",
+                    "name": "John Smith",
+                    "email": "john.smith@bestcarfix.lv",
+                    "phone": "+37120001111",
+                    "role": "mechanic",
+                    "status": "active",
+                    "profile_picture_url": null,
+                    "assigned_companies": [
+                        "C001"
+                    ],
+                    "skills": [
+                        "engine",
+                        "brakes",
+                        "diagnostics"
+                    ],
+                    "certifications": [
+                        "ISO-TS16949",
+                        "EV Certification"
+                    ],
+                    "availability": [
+                        {
+                            "company_id": "C001",
+                            "days": [
+                                "Monday",
+                                "Wednesday",
+                                "Friday"
+                            ],
+                            "hours": "08:00\u201316:00"
+                        }
+                    ],
+                    "last_login": "2025-06-13T10:45:00Z",
+                    "created_at": "2025-05-15T08:00:00Z",
+                    "notes": "Specializes in EV diagnostics. Fluent in Latvian and Russian."
+                }
+            },
+            "cars": {
+                "CAR001-AudiA4": {
+                    "car_id": "CAR001",
+                    "owner_id": "CL001",
+                    "plate_number": "AB-1234",
+                    "vin": "WAUZZZ8KXFA123456",
+                    "make": "Audi",
+                    "model": "A4",
+                    "year": 2015,
+                    "fuel_type": "diesel",
+                    "mileage_km": 186000,
+                    "color": "black",
+                    "notes": "Last service at 182000 km. Timing belt replaced.",
+                    "service_history": [
+                        "J001",
+                        "J002"
+                    ],
+                    "created_at": "2025-05-20T12:35:00Z",
+                    "status": "active"
+                }
+            }
+        }
+    }
+}
