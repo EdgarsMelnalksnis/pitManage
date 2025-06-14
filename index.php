@@ -252,13 +252,13 @@ input:focus, button:focus {
 
         <div class="step active" id="step1">
             <input type="email" id="email" placeholder="Email Address" required />
-            <button onclick="nextStep()">Next</button>
+            <button onclick="nextStep()">Next</button><button onclick="cancelForm()" style="background:#ccc;color:#333;margin-left:10px;">Cancel</button>
         </div>
 
         <div class="step" id="step2">
             <input type="text" id="fullName" placeholder="Full Name" required />
             <input type="text" id="company" placeholder="Company Name" required />
-            <button onclick="nextStep()">Next</button>
+            <button onclick="nextStep()">Next</button><button onclick="cancelForm()" style="background:#ccc;color:#333;margin-left:10px;">Cancel</button>
         </div>
 
         <div class="step" id="step3">
@@ -266,7 +266,7 @@ input:focus, button:focus {
             <label><input type="checkbox" /> Employee Work Management</label><br/>
             <label><input type="checkbox" /> Automated Invoicing</label><br/>
             <label><input type="checkbox" /> WhatsApp Integration</label><br/>
-            <button onclick="submitForm()">Finish</button>
+            <button onclick="submitForm()">Finish</button><button onclick="cancelForm()" style="background:#ccc;color:#333;margin-left:10px;">Cancel</button>
         </div>
     </div>
 </div>
@@ -456,4 +456,12 @@ input:focus, button:focus {
       });
     }
   });
-</script>
+
+  function cancelForm() {
+    if (confirm("Are you sure you want to cancel the setup?")) {
+      document.getElementById('blurredBg').style.display = 'none';
+      document.getElementById('formOverlay').style.display = 'none';
+    }
+  }
+
+</script><button onclick="cancelForm()" style="margin-top:10px;background:#ccc;color:#333;">Cancel</button>
