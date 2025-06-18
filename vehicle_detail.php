@@ -45,28 +45,28 @@ $v = $vehicle_data[$plate] ?? null;
 
 <body style="background: radial-gradient(circle at top left, #f4f4ff, #fef9ff); font-family: 'Segoe UI', sans-serif; padding: 2rem;">
 
-<div class="container-fluid">
+<div class="container">
   <div class="vehicle-card border rounded-4 shadow p-4 bg-white" style="max-width: 1000px; margin:auto;">
     <?php if (!$v): ?>
       <h4>Vehicle not found</h4>
     <?php else: ?>
-    <div class="row align-items-center">
+    <div class="row g-4">
       <div class="col-md-4 text-center mb-3">
-        <img src="https://cdn.pixabay.com/photo/2012/05/29/00/43/car-49278_1280.jpg" class="vehicle-img" alt="Car">
-        <div class="mt-3 d-grid gap-2">
+        <img src="https://cdn.pixabay.com/photo/2015/01/19/13/51/car-604019_1280.jpg" class="vehicle-img" alt="Car">
+        <div class="d-grid gap-2">
           <button class="btn btn-outline-secondary">🗂️ Service History</button>
           <button class="btn btn-outline-secondary">📅 Schedule Service</button>
           <button class="btn btn-outline-secondary">📝 View Inspection Report</button>
         </div>
       </div>
       <div class="col-md-8">
-        <h3 class="mb-3"><?= $v['year'] ?> <?= $v['make'] ?> <?= $v['model'] ?></h3>
-        <p><span class="info-label">VIN:</span> <?= $v['vin'] ?><br>
-           <span class="info-label">Mileage:</span> <?= $v['mileage'] ?><br>
-           <span class="info-label">Next Service:</span> <?= $v['next_service'] ?></p>
+        <h2 class="fw-bold mb-3"><?= $v['year'] ?> <?= $v['make'] ?> <?= $v['model'] ?></h3>
+        <p><strong>VIN:</strong> <?= $v['vin'] ?><br>
+           <br><strong>Mileage:</strong> <?= $v['mileage'] ?><br>
+           <br><strong>Next Service:</strong> <?= $v['next_service'] ?></p>
 
-        <div class="section-title">Recent Services</div>
-        <table class="table table-sm table-bordered mt-3">
+        <h5 class="mt-4 fw-bold text-dark">Recent Services</h5>
+        <table class="table table-sm table-bordered rounded shadow-sm mt-3">
           <thead><tr><th>Date</th><th>Service</th><th>Amount</th></tr></thead>
           <tbody>
             <?php foreach ($v['services'] as $s): ?>
@@ -81,3 +81,20 @@ $v = $vehicle_data[$plate] ?? null;
 </div>
 </body>
 </html>
+
+<style>
+  .vehicle-img {
+    border-radius: 12px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .btn-outline-secondary {
+    border-radius: 10px;
+    font-weight: 500;
+    padding: 10px;
+  }
+  .btn-outline-secondary:hover {
+    background: #ecebff;
+    border-color: #7f00ff;
+  }
+</style>
