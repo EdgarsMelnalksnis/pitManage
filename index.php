@@ -1,4 +1,6 @@
-<?php include 'includes/header.php'; ?>
+<?php
+session_start();
+ include 'includes/header.php'; ?>
 <style>
 html { scroll-behavior: smooth; }
 
@@ -148,10 +150,10 @@ input:focus, button:focus {
             </div>
 
             <!-- Email Signup Form -->
-            <form class="space-y-4">
+            <form method="post" action="login_handler.php" class="space-y-4">
                 <div>
                     <label for="signup-email" class="block text-sm font-medium text-gray-700 mb-1">Email address</label>
-                    <input type="email" id="signup-email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition">
+                    <input type="text" id="signup-email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition">
                 </div>
                 <div>
                     <label for="signup-password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
@@ -218,7 +220,7 @@ input:focus, button:focus {
             <form class="space-y-4">
                 <div>
                     <label for="login-email" class="block text-sm font-medium text-gray-700 mb-1">Email address</label>
-                    <input type="email" id="login-email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition">
+                    <input type="text" id="login-email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition">
                 </div>
                 <div>
                     <label for="login-password" class="block text-sm font-medium text-gray-700 mb-1">Password</label>
@@ -251,7 +253,7 @@ input:focus, button:focus {
         <h2 id="formTitle">Step 1 of 3</h2>
 
         <div class="step active" id="step1">
-            <input type="email" id="email" placeholder="Email Address" required />
+            <input type="text" id="email" placeholder="Email Address" required />
             <button onclick="nextStep()">Next</button><button onclick="cancelForm()" style="background:#ccc;color:#333;margin-left:10px;">Cancel</button>
         </div>
 
@@ -402,7 +404,7 @@ input:focus, button:focus {
 <div id="loginModal" class="fixed inset-0 z-50 flex items-center justify-center hidden bg-black bg-opacity-50">
   <div class="bg-white rounded-xl p-6 shadow-xl max-w-sm w-full mx-4">
     <h2 class="text-xl font-semibold mb-4">Log In</h2>
-    <input type="email" placeholder="Email" class="w-full border p-2 rounded mb-3" />
+    <input type="text" placeholder="Email" class="w-full border p-2 rounded mb-3" />
     <input type="password" placeholder="Password" class="w-full border p-2 rounded mb-4" />
     <button class="w-full bg-blue-600 text-white py-2 rounded">Log In</button>
   </div>
@@ -413,7 +415,7 @@ input:focus, button:focus {
   <div class="bg-white rounded-xl p-6 shadow-xl max-w-sm w-full mx-4">
     <h2 class="text-xl font-semibold mb-4">Sign Up</h2>
     <input type="text" placeholder="Full Name" class="w-full border p-2 rounded mb-3" />
-    <input type="email" placeholder="Email" class="w-full border p-2 rounded mb-3" />
+    <input type="text" placeholder="Email" class="w-full border p-2 rounded mb-3" />
     <input type="password" placeholder="Password" class="w-full border p-2 rounded mb-4" />
     <button class="w-full bg-green-600 text-white py-2 rounded">Create Account</button>
   </div>
@@ -465,3 +467,20 @@ input:focus, button:focus {
   }
 
 </script><button onclick="cancelForm()" style="margin-top:10px;background:#ccc;color:#333;">Cancel</button>
+
+<?php if (isset($_SESSION['role'])): ?>
+    <div class="alert alert-success text-center mt-3">
+        <?php if ($_SESSION['role'] === 'admin'): ?>
+            Hello Admin |
+        <?php elseif ($_SESSION['role'] === 'user'): ?>
+            Hello User |
+        <?php endif; ?>
+        <a href="logout.php">Log out</a>
+    </div>
+<?php endif; ?>
+
+<?php if (isset($_SESSION['login_error'])): ?>
+    <div class="alert alert-danger text-center mt-3">
+        <?= $_SESSION['login_error']; unset($_SESSION['login_error']); ?>
+    </div>
+<?php endif; ?>
