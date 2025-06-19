@@ -278,25 +278,42 @@ input:focus, button:focus {
   <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Why Go Digital?</h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
     <!-- Garage Benefits -->
-    <div class="p-6 rounded-2xl border border-purple-200 shadow-md bg-white/80 backdrop-blur">
-      <h3 class="text-xl font-semibold mb-4">Benefits for Your Garage</h3>
-      <ul class="space-y-4 text-gray-700">
-        <li class="flex items-start"><span class="text-blue-500 mr-3">📊</span> Organized job scheduling & tracking</li>
-        <li class="flex items-start"><span class="text-blue-500 mr-3">🧾</span> Automated invoicing and reports</li>
-        <li class="flex items-start"><span class="text-blue-500 mr-3">🔁</span> Service reminders and job history</li>
-        <li class="flex items-start"><span class="text-blue-500 mr-3">🔐</span> Secure cloud access from anywhere</li>
-        <li class="flex items-start"><span class="text-blue-500 mr-3">🚀</span> Faster turnaround with fewer mistakes</li>
+    <div class="p-6 rounded-2xl border border-purple-200 shadow-md bg-white/80 backdrop-blur hover:shadow-xl hover:border-blue-300 transition-all duration-300 relative overflow-hidden group">
+      <!-- Animated background element -->
+      <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <!-- Floating dots pattern -->
+      <div class="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-700">
+        <div class="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-float" style="animation-delay: 0.1s"></div>
+        <div class="absolute top-1/3 right-1/3 w-3 h-3 bg-purple-400 rounded-full animate-float" style="animation-delay: 0.3s"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-2 h-2 bg-blue-400 rounded-full animate-float" style="animation-delay: 0.5s"></div>
+      </div>
+      <h3 class="text-xl font-semibold mb-4 relative z-10">Benefits for Your Garage</h3>
+      <ul class="space-y-4 text-gray-700 relative z-10">
+        <li class="flex items-start group-hover:translate-x-1 transition-transform duration-200"><span class="text-blue-500 mr-3">📊</span> Organized job scheduling & tracking</li>
+        <li class="flex items-start group-hover:translate-x-1 transition-transform duration-200" style="transition-delay: 0.05s"><span class="text-blue-500 mr-3">🧾</span> Automated invoicing and reports</li>
+        <li class="flex items-start group-hover:translate-x-1 transition-transform duration-200" style="transition-delay: 0.1s"><span class="text-blue-500 mr-3">🔁</span> Service reminders and job history</li>
+        <li class="flex items-start group-hover:translate-x-1 transition-transform duration-200" style="transition-delay: 0.15s"><span class="text-blue-500 mr-3">🔐</span> Secure cloud access from anywhere</li>
+        <li class="flex items-start group-hover:translate-x-1 transition-transform duration-200" style="transition-delay: 0.2s"><span class="text-blue-500 mr-3">🚀</span> Faster turnaround with fewer mistakes</li>
       </ul>
     </div>
+    
     <!-- Client Benefits -->
-    <div class="p-6 rounded-2xl border border-purple-200 shadow-md bg-white/80 backdrop-blur">
-      <h3 class="text-xl font-semibold mb-4">Benefits for Your Customers</h3>
-      <ul class="space-y-4 text-gray-700">
-        <li class="flex items-start"><span class="text-purple-500 mr-3">📅</span> Book appointments online</li>
-        <li class="flex items-start"><span class="text-purple-500 mr-3">📲</span> Get instant SMS/email updates</li>
-        <li class="flex items-start"><span class="text-purple-500 mr-3">🔍</span> Transparent service history</li>
-        <li class="flex items-start"><span class="text-purple-500 mr-3">💳</span> Pay online or in person</li>
-        <li class="flex items-start"><span class="text-purple-500 mr-3">⭐</span> Better service = happier reviews</li>
+    <div class="p-6 rounded-2xl border border-purple-200 shadow-md bg-white/80 backdrop-blur hover:shadow-xl hover:border-purple-300 transition-all duration-300 relative overflow-hidden group">
+      <!-- Animated background element -->
+      <div class="absolute inset-0 bg-gradient-to-br from-purple-50 to-pink-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      <!-- Floating dots pattern -->
+      <div class="absolute inset-0 opacity-0 group-hover:opacity-30 transition-opacity duration-700">
+        <div class="absolute top-1/5 right-1/4 w-3 h-3 bg-purple-400 rounded-full animate-float" style="animation-delay: 0.2s"></div>
+        <div class="absolute bottom-1/3 left-1/3 w-2 h-2 bg-pink-400 rounded-full animate-float" style="animation-delay: 0.4s"></div>
+        <div class="absolute top-1/4 right-1/3 w-2 h-2 bg-purple-400 rounded-full animate-float" style="animation-delay: 0.6s"></div>
+      </div>
+      <h3 class="text-xl font-semibold mb-4 relative z-10">Benefits for Your Customers</h3>
+      <ul class="space-y-4 text-gray-700 relative z-10">
+        <li class="flex items-start group-hover:translate-x-1 transition-transform duration-200"><span class="text-purple-500 mr-3">📅</span> Book appointments online</li>
+        <li class="flex items-start group-hover:translate-x-1 transition-transform duration-200" style="transition-delay: 0.05s"><span class="text-purple-500 mr-3">📲</span> Get instant SMS/email updates</li>
+        <li class="flex items-start group-hover:translate-x-1 transition-transform duration-200" style="transition-delay: 0.1s"><span class="text-purple-500 mr-3">🔍</span> Transparent service history</li>
+        <li class="flex items-start group-hover:translate-x-1 transition-transform duration-200" style="transition-delay: 0.15s"><span class="text-purple-500 mr-3">💳</span> Pay online or in person</li>
+        <li class="flex items-start group-hover:translate-x-1 transition-transform duration-200" style="transition-delay: 0.2s"><span class="text-purple-500 mr-3">⭐</span> Better service = happier reviews</li>
       </ul>
     </div>
   </div>
@@ -307,36 +324,20 @@ input:focus, button:focus {
   </div>
 </section>
 
-
-<section class="w-full text-gray-900 py-16 px-4 md:px-8 lg:px-20">
-  <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">How it Works</h2>
-  <div class="flex flex-col lg:flex-row items-center gap-10 max-w-6xl mx-auto bg-white/80 backdrop-blur rounded-3xl shadow-xl p-8">
-    <!-- Text Steps -->
-    <div class="flex-1 space-y-6 text-left">
-      <div>
-        <h3 class="text-lg font-semibold mb-1">📅 Customer books online</h3>
-        <p class="text-gray-600">Clients pick a time and service online using your branded booking page.</p>
-      </div>
-      <div>
-        <h3 class="text-lg font-semibold mb-1">📥 Garage receives request</h3>
-        <p class="text-gray-600">You get instant notifications and can manage jobs in real-time.</p>
-      </div>
-      <div>
-        <h3 class="text-lg font-semibold mb-1">🛠️ Perform and update service</h3>
-        <p class="text-gray-600">Track progress, upload photos, and leave notes for full service transparency.</p>
-      </div>
-      <div>
-        <h3 class="text-lg font-semibold mb-1">📲 Client gets notified</h3>
-        <p class="text-gray-600">Customers receive automated updates and summaries via SMS or email.</p>
-      </div>
-    </div>
-    <!-- Image -->
-    <div class="flex-1">
-      <img src="/images/how-it-works.png" alt="Workshop and Happy Client" class="rounded-xl shadow-md">
-    </div>
-  </div>
-</section>
-
+<style>
+  /* Add this to your existing style section */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(0);
+    }
+    50% {
+      transform: translateY(-10px) translateX(5px);
+    }
+  }
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+</style>
 
 <section id="pricing" class="w-full text-gray-900 py-20 px-4 md:px-8 lg:px-20 bg-white">
   <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">Pricing</h2>
