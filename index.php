@@ -1,3 +1,35 @@
+
+<head>
+  <meta charset="UTF-8">
+  <title>Car Service App</title>
+  <style>
+    body {
+      background-image: url('images/mainBackGround.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.5); /* light overlay to soften image */
+      backdrop-filter: blur(8px);
+      z-index: -1;
+    }
+
+    /* Make all major containers transparent */
+    .container, .section, .card, .content, .wrapper, .pricing {
+      background-color: transparent !important;
+    }
+  </style>
+</head>
 <?php
 session_start();
  include 'includes/header.php'; ?>
