@@ -7,7 +7,7 @@
     <link href="/css/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-white text-gray-900">
-<header class="sticky w-full sm:flex-row flex-col flex sm:px-6 py-4 space-y-4 shadow bg-white sm:space-y-0 items-center top-0 px-4 z-50 justify-between">
+<header class="bg-white bg-opacity-90 backdrop-blur-md fixed top-0 w-full z-50 shadow-md sticky w-full sm:flex-row flex-col flex sm:px-6 py-4 space-y-4 shadow bg-white sm:space-y-0 items-center top-0 px-4 z-50 justify-between">
     <div>
         <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
             <img src="/images/pitManageLogo.png" alt="PitManage Logo" class="w-20 h-17 duration-300 hover:scale-105 hover:brightness-110 ease-in-out transition-transform">

@@ -266,7 +266,7 @@ if (empty($_SESSION['csrf_token'])) {
   Streamline bookings, track repairs, manage customers, and automate invoicing — all from one platform.
 </p>
     <a href="javascript:void(0)" id="getStarted"
-       class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white font-semibold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
+       class="mt-6 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white font-semibold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
        Get Started. It's FREE →
     </a>
 
