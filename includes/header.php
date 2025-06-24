@@ -24,14 +24,71 @@
 
     <!-- Desktop Nav (existing) -->
     <nav class="hidden sm:flex items-center ml-auto bg-white/70 backdrop-blur-md border border-gray-300 rounded-full px-6 py-2.5 shadow-sm space-x-3 h-[44px]">
-      <div class="relative group">
-        <button class="px-2 text-sm font-medium text-gray-700 hover:text-purple-600">Features ▾</button>
-        <div class="absolute hidden group-hover:block bg-white border rounded-xl shadow-md mt-2 py-2 w-48 z-10">
-          <a href="javascript:void(0)" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Overview</a>
-          <a href="javascript:void(0)" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Booking Tools</a>
-          <a href="javascript:void(0)" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Reminders</a>
-        </div>
-      </div>
+      <div class="relative" id="featuresMenu">
+  <button onclick="toggleFeaturesDropdown()" class="px-2 text-sm font-medium text-gray-700 hover:text-purple-600 focus:outline-none">
+    Features ▾
+  </button>
+  <div id="featuresDropdown" class="hidden absolute bg-white border border-gray-200 shadow-lg rounded-xl mt-2 p-6 space-x-10 z-50 w-[1000px]">
+    <div>
+      <h4 class="font-semibold text-gray-800 mb-2">Service Planning</h4>
+      <ul class="space-y-1 text-sm text-gray-700">
+        <li><a href="#">Customer Reservation</a></li>
+        <li><a href="#">Operation Management</a></li>
+        <li><a href="#">Technician Assignment</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold text-gray-800 mb-2">Execution & Monitoring</h4>
+      <ul class="space-y-1 text-sm text-gray-700">
+        <li><a href="#">Live Service Tracking</a></li>
+        <li><a href="#">Workflow Management</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold text-gray-800 mb-2">Client Vehicle</h4>
+      <ul class="space-y-1 text-sm text-gray-700">
+        <li><a href="#">Vehicle Card</a></li>
+        <li><a href="#">Repair History</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold text-gray-800 mb-2">Workforce Management</h4>
+      <ul class="space-y-1 text-sm text-gray-700">
+        <li><a href="#">Employee Management</a></li>
+        <li><a href="#">Work Zones</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold text-gray-800 mb-2">Communications</h4>
+      <ul class="space-y-1 text-sm text-gray-700">
+        <li><a href="#">SMS Channels</a></li>
+        <li><a href="#">Chat Channels</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-semibold text-gray-800 mb-2">Financial</h4>
+      <ul class="space-y-1 text-sm text-gray-700">
+        <li><a href="#">Invoicing</a></li>
+        <li><a href="#">Payments</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script>
+  function toggleFeaturesDropdown() {
+    const dropdown = document.getElementById('featuresDropdown');
+    dropdown.classList.toggle('hidden');
+  }
+
+  document.addEventListener('click', function (e) {
+    const menu = document.getElementById('featuresMenu');
+    const dropdown = document.getElementById('featuresDropdown');
+    if (!menu.contains(e.target)) {
+      dropdown.classList.add('hidden');
+    }
+  });
+</script>
       <div class="relative group">
         <button class="px-2 text-sm font-medium text-gray-700 hover:text-purple-600">Solutions ▾</button>
         <div class="absolute hidden group-hover:block bg-white border rounded-xl shadow-md mt-2 py-2 w-48 z-10">
