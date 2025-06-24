@@ -214,6 +214,28 @@ if (empty($_SESSION['csrf_token'])) {
 }
 </style>
 
+
+<style>
+  .hover-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .hover-underline::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(to right, #8B5CF6, #6366F1);
+    transition: width 0.4s ease;
+    border-radius: 2px;
+  }
+  .hover-underline:hover::after {
+    width: 100%;
+  }
+</style>
+
 </head>
 <body>
   <?php include 'includes/header.php'; ?>
@@ -237,8 +259,12 @@ if (empty($_SESSION['csrf_token'])) {
   <?php endif; ?>
 
   <main class="relative background-blur flex flex-col items-center justify-center text-center mt-20 px-4">
-    <h1 class="text-5xl text-gray-900 font-bold text-center text-gray-900 mb-4 hero-animate text-black transition duration-300 ease-in-out ">Digital Tools for Car Service Centers</h1>
-<p class="text-xl text-gray-800 text-center text-gray-600 mb-8 hero-animate text-black transition duration-300 ease-in-out">Streamline bookings, track repairs, manage customers, and automate invoicing — all from one platform.</p>
+    <h1 class="text-5xl font-extrabold text-black hover-underline transition-all duration-300">
+  Digital Tools for Car Service Centers
+</h1>
+<p class="text-xl mt-4 text-gray-700">
+  Streamline bookings, track repairs, manage customers, and automate invoicing — all from one platform.
+</p>
     <a href="javascript:void(0)" id="getStarted"
        class="bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white font-semibold py-3 px-6 rounded-full shadow-lg transform hover:scale-105 transition-all duration-300">
        Get Started. It's FREE →
